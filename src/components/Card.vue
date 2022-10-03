@@ -14,7 +14,8 @@
     <!-- Product actions-->
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
       <div class="text-center">
-        <a class="btn btn-outline-dark mt-auto" href="#">View options</a>
+        <button class="btn btn-outline-info mt-auto mx-2">Add to card</button>
+        <router-link class="btn btn-outline-dark mt-auto" :to="{ name: 'detail', params: { id: product.id }}">View</router-link>
       </div>
     </div>
   </div>
