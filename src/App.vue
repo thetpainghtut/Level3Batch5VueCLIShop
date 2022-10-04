@@ -2,7 +2,7 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-      <router-link class="navbar-brand" to="/">Start Bootstrap</router-link>
+      <router-link class="navbar-brand" to="/">{{this.$store.state.name}}</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -42,7 +42,7 @@
           <button class="btn btn-outline-dark" type="submit">
             <i class="bi-cart-fill me-1"></i>
             Cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            <span class="badge bg-dark text-white ms-1 rounded-pill" v-if="this.$store.state.cart.length > 0">{{cartNoti}}</span>
           </button>
         </form>
       </div>
@@ -81,3 +81,23 @@ nav a.router-link-exact-active {
   color: #42b983;
 } */
 </style>
+
+<script>
+  export default {
+    data(){
+      return {
+        cartArr: this.$store.state.cart,
+      }
+    },
+    mounted(){
+      // this.$store.dispatch('getData')
+    },
+    methods:{
+    },
+    computed:{
+      cartNoti(){
+        return this.cartArr.reduce((a, row) => a + row.qty, 0)
+      }
+    }
+  }
+</script>

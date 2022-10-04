@@ -4,6 +4,7 @@
   <!-- Section-->
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
+      {{this.$store.getters.getAdult}}
       <div class="dropdown" v-if="categories.length > 1">
         <button
           class="btn btn-secondary dropdown-toggle"
